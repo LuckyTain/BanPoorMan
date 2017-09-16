@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BanPoorMan:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BanPoorMan_jar</output-path>
+    <root id="archive" name="BanPoorMan.jar">
+      <element id="module-output" name="BanPoorMan" />
+    </root>
+  </artifact>
+</component>
