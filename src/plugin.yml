@@ -1,3 +1,4 @@
 name: BanPoorMan
 main: win.luckytain.main
 version: 1.0
+depend: [Vault]

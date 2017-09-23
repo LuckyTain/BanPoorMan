@@ -21,6 +21,7 @@ public class main extends JavaPlugin implements Listener {
     }
     @Override
     public void onEnable() {
+        setupEconomy();
         getLogger().info("BanPoorMan插件开启");
         Bukkit.getPluginManager().registerEvents(this, this);
         new BukkitRunnable(){
@@ -29,11 +30,14 @@ public class main extends JavaPlugin implements Listener {
                 Collection<? extends Player> pl = Bukkit.getOnlinePlayers();
                 for (Player p : pl){
                     if (economy.getBalance(p) <= 0){
-                        p.sendMessage("no money");
+                        if (!p.hasPermission("nobanpoorman") || !p.isOp()){
+                            p.kickPlayer("你没钱被Ban啦");
+                            p.setBanned(true);
+                        }
                     }
                 }
             }
-        }.runTaskTimerAsynchronously(this,0,20);
+        }.runTaskTimer(this,0,20);
     }
 
     @Override
